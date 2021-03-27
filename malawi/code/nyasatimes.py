@@ -48,7 +48,10 @@ class News:
             try:
                 content = self.get_soup(link)
                 heading = content.find("h1", {"class": "nyasa-title"}).text
-                image = content.find("figure").find("img")["src"]
+                image = content.find("figure", {"class": "wp-caption alignright"}).find(
+                    "img"
+                )["data-srcset"]
+                new_image = image.split(" ", 1)[0]
                 description = (
                     content.find("div", {"class": "nyasa-content"}).find("p").text
                 )
@@ -56,7 +59,7 @@ class News:
                     NewsModel.objects.create(
                         heading=heading,
                         description=description,
-                        image=image,
+                        image=new_image,
                         source="nyasatimes",
                         link=link,
                     )
