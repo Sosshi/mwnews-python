@@ -1,1 +1,1 @@
-web: news.wsgi --log-file -
+web: gunicorn news.wsgi --log-file -
