@@ -14,4 +14,4 @@ def my_view(request):
 class NewsListView(ListView):
     model = News
     context_object_name = "news"
-    queryset = News.objects.order_by("-heading")
+    queryset = News.objects.order_by("-date")

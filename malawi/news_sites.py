@@ -5,7 +5,21 @@ from .code.scraper import News as national_news
 
 
 def run_code():
-    times_news()
-    zodiak_news()
-    national_news()
-    nyasatimes_news()
+    try:
+        times_news()
+    except:
+        print("times has issues")
+    try:
+        zodiak_news()
+    except:
+        print("zodiak has issues")
+
+    try:
+        national_news()
+    except:
+        print("malawi nation has issues")
+
+    try:
+        nyasatimes_news()
+    except:
+        print("nyasatimes has issues")
