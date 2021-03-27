@@ -48,7 +48,7 @@ class News:
             try:
                 content = self.get_soup(link)
                 heading = content.find("h1", {"class": "nyasa-title"}).text
-                image = content.find("figure").find("img")["data-src"]
+                image = content.find("figure").find("img")["src"]
                 description = (
                     content.find("div", {"class": "nyasa-content"}).find("p").text
                 )
