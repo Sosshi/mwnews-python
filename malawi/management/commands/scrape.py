@@ -5,7 +5,7 @@ from ...news_sites import run_code
 class Command(BaseCommand):
     help = "Scrapes data from the internet"
 
-    def handle(self):
+    def handle(self, *args, **options):
         try:
             run_code()
         except:
