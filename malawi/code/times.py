@@ -36,18 +36,21 @@ class News:
         segment = content.find("div", {"id": "tie-s_1441"})
         articles = segment.find_all("li")
         for article in articles:
-            link_data = article.find("a")
-            link = link_data["href"]
-            heading = link_data["title"]
-            image = link_data.find("img")["src"]
-            description = article.find("p", {"class": "post-excerpt"}).text
             try:
-                NewsModel.objects.create(
-                    heading=heading,
-                    description=description,
-                    image=image,
-                    source="times mw",
-                    link=link,
-                )
-            except IntegrityError:
-                pass
+                link_data = article.find("a")
+                link = link_data["href"]
+                heading = link_data["title"]
+                image = link_data.find("img")["src"]
+                description = article.find("p", {"class": "post-excerpt"}).text
+                try:
+                    NewsModel.objects.create(
+                        heading=heading,
+                        description=description,
+                        image=image,
+                        source="times mw",
+                        link=link,
+                    )
+                except IntegrityError:
+                    pass
+            except TypeError:
+                print("times non type")
