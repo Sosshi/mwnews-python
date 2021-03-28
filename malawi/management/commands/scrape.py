@@ -8,6 +8,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         try:
             run_code()
+
         except:
             print("Failed to run scrapper")
             return
