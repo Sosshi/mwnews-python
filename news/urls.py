@@ -10,4 +10,4 @@ router.register(r"news", NewsViewset, basename="news")
 
 
 
-urlpatterns = [path("admin/", admin.site.urls), path("", include("malawi.urls"))]
+urlpatterns = [path("admin/", admin.site.urls), path("", include("malawi.urls")), path("api", include(router.urls)),]
