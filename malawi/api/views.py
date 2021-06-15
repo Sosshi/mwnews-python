@@ -3,5 +3,5 @@ from ..models import News
 from .serializers import NewsSerializers
 
 class NewsViewset(viewsets.ModelViewSet):
-    queryset = News.objects.order_by("date")
+    queryset = News.objects.order_by("-date")
     serializer_class = NewsSerializers
