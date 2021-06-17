@@ -5,4 +5,4 @@ from .serializers import NewsSerializers
 class NewsViewset(viewsets.ModelViewSet):
     queryset = News.objects.order_by("-date")
     serializer_class = NewsSerializers
-    search_fields = ["$heading", "$description"]
+    search_fields = ["heading", "description"]
