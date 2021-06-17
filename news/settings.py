@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     "malawi",
     "rest_framework",
     'corsheaders',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
